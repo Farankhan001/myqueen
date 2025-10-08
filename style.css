@@ -1,0 +1,55 @@
+/* --- Global Animations --- */
+@keyframes pulse-slow {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.02); opacity: 0.8; }
+}
+.animate-pulse-slow {
+    animation: pulse-slow 3s infinite;
+}
+
+/* --- 3D Hero Card Styling --- */
+#birthday-card {
+    /* Perspective for true 3D effect */
+    perspective: 1500px; 
+    
+    /* Modern shadow glow effect */
+    box-shadow: 
+        0 0 50px rgba(255, 105, 180, 0.4), /* Pink glow */
+        0 0 100px rgba(255, 255, 255, 0.1); /* White highlight */
+    
+    /* Initial 3D tilt for a floating look */
+    transform: rotateX(5deg) rotateY(-5deg) scale(0.95);
+}
+
+/* 3D Card Hover Effect: straighten and pop */
+#birthday-card:hover {
+    transform: rotateX(0deg) rotateY(0deg) scale(1.0); 
+    box-shadow: 
+        0 0 80px rgba(255, 105, 180, 0.8), 
+        0 0 150px rgba(255, 255, 255, 0.2); 
+}
+
+/* --- Wish Note Styling (The 3D Love Notes) --- */
+.wish-note {
+    /* Background for the card */
+    background: rgba(45, 55, 72, 0.7); /* Dark semi-transparent */
+    border-radius: 1rem;
+    padding: 1.5rem;
+    /* Setup for 3D Transform */
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.6s ease-out;
+    border-top: 5px solid transparent; /* Placeholder for JS color */
+}
+
+/* 3D Note Hover Effect: Lift and rotate (for a floating paper effect) */
+.wish-note:hover {
+    transform: translateY(-15px) rotateZ(1deg) scale(1.05);
+    box-shadow: 0 20px 40px -5px rgba(255, 105, 180, 0.7); /* Stronger pink glow */
+    z-index: 10;
+}
+
+/* --- Confetti/Particle Container --- */
+/* The JS handles the confetti, this ensures the container is ready */
+#confetti-container {
+    z-index: 1000;
+}
